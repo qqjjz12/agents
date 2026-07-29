@@ -68,16 +68,16 @@ class StockPicker():
         return Task(
             config=self.tasks_config['pick_best_company'],
     )
-    manager = Agent(
-        config=self.agents_config['manager'],
-        allow_delegation=True
-    )
-           
+       
     @crew
     def crew(self) -> Crew:
         """Creates the StockPicker crew"""
         # To learn how to add knowledge sources to your crew, check out the documentation:
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
+        manager = Agent(
+            config=self.agents_config['manager'],
+            allow_delegation=True,
+        )
  
         return Crew(
             agents=self.agents,
